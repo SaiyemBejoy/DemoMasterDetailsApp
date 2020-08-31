@@ -1,0 +1,101 @@
+﻿@model DemoMasterDetailsApp.Models.Purchase
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Purchases</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="panel-group">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <div class="panel-title">Purchase Header</div>
+        </div>
+
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        @Html.LabelFor(p => p.CustomerName, "Customer Name *", new { @class = "control-label col-md-4" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(p => p.CustomerName, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(p => p.CustomerContactNo, "Customer Contact no *", new { @class = "control-label col-md-4" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(p => p.CustomerContactNo, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        @Html.LabelFor(p => p.PurchaseDate, "Purchase Date *", new { @class = "control-label col-md-4" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(p => p.PurchaseDate, null, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(p => p.Descripton, "Description", new { @class = "control-label col-md-4" })
+                        <div class="col-md-4">
+                            @Html.TextAreaFor(p => p.Descripton, new { @class = "form-control", rows = 3 })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="panel-group">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <div class="panel-title">Purchase Details</div>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-group row">
+                @Html.Label("ItemName", "Item Name *", new { @class = "control-label col-md-4" })
+                <div class="col-md-4">
+                    @Html.TextBox("ItemName", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("ItemQuantity", "Item Quantity *", new { @class = "control-label col-md-4" })
+                <div class="col-md-4">
+                    @Html.TextBox("ItemQuantity", null, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.Label("ItemPrice", "Item Price *", new { @class = "control-label col-md-4" })
+                <div class="col-md-4">
+                    @Html.TextBox("ItemPrice", null, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel-group">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <div class="panel-title">Added Purchase Details Items</div>
+        </div>
+
+        <div class="panel-body">
+
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4 col-md-offset-4">
+    <input type="submit" value="Save" class="btn btn-success"/>
+</div>
+
+}
