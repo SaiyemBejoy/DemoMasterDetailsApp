@@ -60,6 +60,7 @@
         </div>
 
         <div class="panel-body">
+
             <div class="form-group row">
                 @Html.Label("ItemName", "Item Name *", new { @class = "control-label col-md-4" })
                 <div class="col-md-4">
@@ -78,6 +79,11 @@
                     @Html.TextBox("ItemPrice", null, new { @class = "form-control" })
                 </div>
             </div>
+
+            <div class="col-md-4 col-md-offset-4">
+                <input type="button" id="AddButton" value="Add" class="btn btn-info"/>
+            </div>
+
         </div>
     </div>
 </div>
@@ -90,6 +96,34 @@
 
         <div class="panel-body">
 
+            <table class="table table-bordered table-hover table-striped table-responsive">
+                <thead>
+                    <tr style="background-color: teal; color: white; font-weight: bold">
+                        <td>Sl.</td>
+                        <td>Item Name</td>
+                        <td>Quantity</td>
+                        <td>Price</td>
+                    </tr>
+                </thead>
+                <tbody id="PurchaseDetailsTable">
+
+                    @if(Model != null && Model.PurchaseDetailses != null && Model.PurchaseDetailses.Count > 0)
+                    {
+                        var sl = 0;
+                        foreach(var item in Model.PurchaseDetailses)
+                        {
+                    <tr>
+                        <td>@(++sl)</td>
+                        <td>@item.Name</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Price</td>    
+                    </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+
         </div>
     </div>
 </div>
@@ -97,5 +131,13 @@
 <div class="col-md-4 col-md-offset-4">
     <input type="submit" value="Save" class="btn btn-success"/>
 </div>
+
+}
+
+
+@section scripts
+{
+    
+    <script src="~/Scripts/ProjectScripts/Purchase/PurchaseCreate.js"></script>
 
 }

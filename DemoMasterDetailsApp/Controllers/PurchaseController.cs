@@ -27,7 +27,7 @@ namespace DemoMasterDetailsApp.Controllers
                 var isPurchaseAdded = _db.SaveChanges() > 0;
                 if (isPurchaseAdded)
                 {
-                    return View(purchase);
+                    return RedirectToAction("Index", "Home");
                 }
             }
 
